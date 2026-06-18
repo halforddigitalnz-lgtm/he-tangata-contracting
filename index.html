@@ -135,9 +135,28 @@
     #hero { position: relative; height: 100vh; min-height: 680px; display: flex; align-items: flex-end; overflow: hidden; }
     .hero-bg {
       position: absolute; inset: 0;
-      background: url('portfolio-images-web/IMG_4217.jpg') center 30% / cover no-repeat;
       will-change: transform;
+      overflow: hidden;
     }
+    .hero-bg-inner {
+      position: absolute; inset: -5%;
+      background: url('portfolio-images-web/IMG_4217.jpg') center 30% / cover no-repeat;
+      animation: kenBurns 26s ease-out forwards;
+    }
+    @keyframes kenBurns {
+      from { transform: scale(1); }
+      to   { transform: scale(1.09); }
+    }
+
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-kiwi { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
+    .hero-h1   { animation: heroFadeUp 1.1s cubic-bezier(0.16,1,0.3,1) 0.38s both; }
+    .hero-sub  { animation: heroFadeUp 0.95s cubic-bezier(0.16,1,0.3,1) 0.58s both; }
+    .hero-whaka { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.72s both; }
+    .hero-ctas { animation: heroFadeUp 0.9s cubic-bezier(0.16,1,0.3,1) 0.88s both; }
     .hero-overlay {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(5,10,3,0.97) 0%, rgba(5,10,3,0.65) 35%, rgba(5,10,3,0.22) 65%, transparent 100%);
@@ -334,7 +353,7 @@
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-bg" id="heroBg"><div class="hero-bg-inner"></div></div>
   <div class="hero-overlay"></div>
   <div class="hero-bleed"></div>
   <div class="hero-content">
